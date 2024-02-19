@@ -17,19 +17,6 @@ builder.Services.AddDbContext<DataContext>(opt => {
 var app = builder.Build();
 
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
- 
- // app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
-
 using var scope = app.Services.CreateScope();
 
 var services = scope.ServiceProvider;
@@ -46,5 +33,18 @@ catch (Exception ex)
     logger.LogError(ex, "An err ocurred during migration");
     throw;
 }
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+ 
+ // app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
+app.MapControllers();
 
 await app.RunAsync();

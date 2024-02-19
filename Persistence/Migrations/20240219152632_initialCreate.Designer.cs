@@ -11,7 +11,7 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240218211437_initialCreate")]
+    [Migration("20240219152632_initialCreate")]
     partial class initialCreate
     {
         /// <inheritdoc />
@@ -46,7 +46,7 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Activityes");
+                    b.ToTable("Activities");
                 });
 #pragma warning restore 612, 618
         }

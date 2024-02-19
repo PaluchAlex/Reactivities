@@ -11,9 +11,10 @@ namespace Persistence
     {
         public DataContext(DbContextOptions options) : base(options)
         {
+            Database.EnsureCreated();
         }
 
-        public DbSet<Activity> Activityes { get; set; } 
+        public DbSet<Activity> Activities { get; set; } 
 
     }
 }
